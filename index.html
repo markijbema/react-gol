@@ -17,31 +17,21 @@
       /**
        * @jsx React.DOM
        */
-      var Grid = React.createClass({
-        render: function() {
-          var list_of_rows = this.props.grid.map(function(row, y){
-            return <tr key={y}><td className="alive cell" /></tr>
-          })
-
-          return <table>{list_of_rows}</table>;
-        }
-      });
-
       var GoL = React.createClass({
          getInitialState: function(){
            return {grid: this.props.startingGrid};
          },
-
          componentWillReceiveProps: function(nextProps) {
            this.setState({grid: nextProps.startingGrid});
          },
-
          render: function(){
-          return <div>
-                   <Grid grid={this.state.grid}/>
-                 </div>
+          var list_of_rows = this.state.grid.map(function(row, y){
+            return <tr key={y}><td className="alive cell">.</td></tr>
+          });
+
+          return <table>{list_of_rows}</table>;
         }
-      })
+      });
    
 
       large = [0,0,0,0,0,0];
