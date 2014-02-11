@@ -26,10 +26,10 @@
          },
          render: function(){
           var list_of_rows = this.state.grid.map(function(row, y){
-            return <tr key={y}><td className="alive cell">.</td></tr>
+            return <li key={y}><b className="alive cell">.</b></li>
           });
 
-          return <table>{list_of_rows}</table>;
+          return <ul>{list_of_rows}</ul>;
         }
       });
    
